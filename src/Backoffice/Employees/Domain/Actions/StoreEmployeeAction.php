@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Users\Domain\Actions;
+namespace Lightit\Backoffice\Employees\Domain\Actions;
 
-use Lightit\Backoffice\Employee\Domain\DataTransferObjects\EmployeeDto;
-use Lightit\Backoffice\Employee\Domain\Models\Employee;
+use Lightit\Backoffice\Employees\Domain\DataTransferObjects\EmployeeDto;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 
 class StoreEmployeeAction
 {

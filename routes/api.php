@@ -2,8 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Lightit\Backoffice\Employee\App\Controllers\{
+use Lightit\Backoffice\Employees\App\Controllers\{
     ListEmployeeController, StoreEmployeeController
+};
+use Lightit\Backoffice\Tasks\App\Controllers\{
+    ListTasksController, GetTaskController,
+    StoreTaskController,
+    UpdateTaskController
 };
 use Lightit\Backoffice\Users\App\Controllers\{
     DeleteUserController, GetUserController, ListUserController, StoreUserController
@@ -46,6 +51,20 @@ Route::prefix('users')
 Route::prefix('employees')
     ->middleware([])
     ->group(static function () {
-        Route::get('/', ListEmployeeController::class)->name('employees');
+        Route::get('/', ListEmployeeController::class);
         Route::post('/', StoreEmployeeController::class);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Tasks Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('tasks')
+    ->middleware([])
+    ->group(static function () {
+        Route::get('/', ListTasksController::class);
+        Route::get('/{task}', GetTaskController::class);
+        Route::post('/', StoreTaskController::class);
+        Route::put('/{task}', UpdateTaskController::class);
 });

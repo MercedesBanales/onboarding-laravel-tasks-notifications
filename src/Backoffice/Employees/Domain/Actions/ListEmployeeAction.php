@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Employee\Domain\Actions;
+namespace Lightit\Backoffice\Employees\Domain\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Lightit\Backoffice\Employee\Domain\Models\Employee;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class ListEmployeeAction

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Employee\Domain\Models;
+namespace Lightit\Backoffice\Employees\Domain\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Lightit\Backoffice\Task\Domain\Models\Task;
+use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 /**
  * @property int                             $id

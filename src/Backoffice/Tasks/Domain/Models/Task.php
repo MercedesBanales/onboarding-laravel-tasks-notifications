@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Task\Domain\Models;
+namespace Lightit\Backoffice\Tasks\Domain\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Lightit\Backoffice\Employee\Domain\Models\Employee;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 
 /**
  * @property int                             $id
@@ -31,6 +31,12 @@ use Lightit\Backoffice\Employee\Domain\Models\Employee;
  */
 class Task extends Model
 {
+    protected $fillable = [
+        'title',
+        'description',
+        'employee_id'
+    ];
+
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);

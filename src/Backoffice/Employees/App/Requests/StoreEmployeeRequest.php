@@ -2,17 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Users\App\Requests;
+namespace Lightit\Backoffice\Employees\App\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Lightit\Backoffice\Employee\Domain\DataTransferObjects\EmployeeDto;
-use Lightit\Backoffice\Employee\Domain\Models\Employee;
+use Lightit\Backoffice\Employees\Domain\DataTransferObjects\EmployeeDto;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 
-class StoreUserRequest extends FormRequest
+class StoreEmployeeRequest extends FormRequest
 {
     public const NAME = 'name';
+
     public const EMAIL = 'email';
+
+    public const TASKS = 'tasks';
 
     /**
      * @return array<string, mixed>
