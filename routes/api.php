@@ -2,10 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Lightit\Backoffice\Employee\App\Controllers\{
+    ListEmployeeController, StoreEmployeeController
+};
 use Lightit\Backoffice\Users\App\Controllers\{
     DeleteUserController, GetUserController, ListUserController, StoreUserController
 };
-
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,15 @@ Route::prefix('users')
         Route::post('/', StoreUserController::class);
         Route::delete('/{user}', DeleteUserController::class);
     });
+
+/*
+|--------------------------------------------------------------------------
+| Employees Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('employees')
+    ->middleware([])
+    ->group(static function () {
+        Route::get('/', ListEmployeeController::class)->name('employees');
+        Route::post('/', StoreEmployeeController::class);
+});

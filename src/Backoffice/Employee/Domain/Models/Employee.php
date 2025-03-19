@@ -30,6 +30,11 @@ use Lightit\Backoffice\Task\Domain\Models\Task;
  */
 class Employee extends Model
 {
+    protected $fillable = [
+        'name',
+        'email',
+    ];
+    
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
