@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Lightit\Backoffice\Tasks\Domain\DataTransferObjects\TaskDto;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
-use Spatie\QueryBuilder\QueryBuilder;
 
 class StoreTaskAction
 {
@@ -18,9 +17,10 @@ class StoreTaskAction
     public function execute(TaskDto $dto): Task
     {
         $task = new Task([
-            'title' => $dto->getTitle(),
-            'description' => $dto->getDescription(),
-            'employee_id' => $dto->getEmployeeId()
+            'title' => $dto->title,
+            'description' => $dto->description,
+            'status' => $dto->status,
+            'employee_id' => $dto->employee_id,
         ]);
 
         $task->save();

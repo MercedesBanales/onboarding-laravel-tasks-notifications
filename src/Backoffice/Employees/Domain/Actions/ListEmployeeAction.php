@@ -17,6 +17,7 @@ class ListEmployeeAction
     public function execute(): Collection
     {
         return QueryBuilder::for(Employee::class)
+            ->with('tasks')
             ->get();
     }
 }

@@ -10,7 +10,8 @@ use Lightit\Backoffice\Tasks\Domain\Actions\StoreTaskAction;
 
 class StoreTaskController
 {
-    public function __invoke(StoreTaskRequest $request, StoreTaskAction $action) {
+    public function __invoke(StoreTaskRequest $request, StoreTaskAction $action)
+    {
         $task = $action->execute($request->toDto());
 
         return responder()

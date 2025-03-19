@@ -9,7 +9,7 @@ class EmployeeDto
     public function __construct(
         private readonly string $name,
         private readonly string $email,
-        private readonly array $tasks = []
+        private readonly array $tasks = [],
     ) {
     }
 

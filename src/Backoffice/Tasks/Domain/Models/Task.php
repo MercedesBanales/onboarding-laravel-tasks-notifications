@@ -7,8 +7,11 @@ namespace Lightit\Backoffice\Tasks\Domain\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Lightit\Backoffice\Employees\Domain\Models\Employee;
+use Lightit\Backoffice\Tasks\App\Enums\TaskStatus;
 
 /**
+ * 
+ *
  * @property int                             $id
  * @property string                          $title
  * @property string                          $description
@@ -16,7 +19,6 @@ use Lightit\Backoffice\Employees\Domain\Models\Employee;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read Employee|null $employee
- *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task query()
@@ -26,7 +28,8 @@ use Lightit\Backoffice\Employees\Domain\Models\Employee;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereUpdatedAt($value)
- *
+ * @property TaskStatus $status
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereStatus($value)
  * @mixin \Eloquent
  */
 class Task extends Model
@@ -34,8 +37,11 @@ class Task extends Model
     protected $fillable = [
         'title',
         'description',
-        'employee_id'
+        'status',
+        'employee_id',
     ];
+
+    protected $casts = [ 'status' => TaskStatus::class ];
 
     public function employee(): BelongsTo
     {

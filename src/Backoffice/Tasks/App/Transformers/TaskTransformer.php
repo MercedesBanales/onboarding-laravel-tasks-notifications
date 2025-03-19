@@ -18,7 +18,8 @@ class TaskTransformer extends Transformer
             'id' => $task->id,
             'title' => $task->title,
             'description' => $task->description,
-            'employee_id' => $task->employee_id
+            'status' => $task->status,
+            'employee_id' => $task->employee_id,
         ];
     }
 }

@@ -62,7 +62,7 @@
 
         select.innerHTML = '<option value="">Select Employee</option>';
 
-        fetch('/employees', {
+        fetch('/api/employees', {
             headers: {
                 'Accept': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest'
@@ -89,7 +89,7 @@
     function loadTasks(select) {
         if (tasksLoaded) return;
 
-        fetch('/tasks', {
+        fetch('/api/tasks', {
             headers: {
                 'Accept': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest'
@@ -120,7 +120,7 @@
             return;
         }
 
-        fetch(`/tasks/${taskId}`, {
+        fetch(`api/tasks/${taskId}`, {
             headers: {
                 'Accept': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest'
@@ -154,14 +154,16 @@
         e.preventDefault();
         const formData = new FormData(this);
         const action = formData.get('action');
+        let url = '{{ route('tasks') }}'
 
         if (action === 'update') {
             const taskId = formData.get('task_id');
-            formData.append('id', taskId);
+            url = `${url}/${taskId}`
+            formData.append('_method', 'PUT');
         }
         formData.delete('task_id');
 
-        fetch('{{ route('tasks') }}', {
+        fetch(url, {
             method: 'POST',
             body: formData,
             headers: {

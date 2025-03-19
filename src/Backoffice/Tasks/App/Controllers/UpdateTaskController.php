@@ -11,7 +11,8 @@ use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 class UpdateTaskController
 {
-    public function __invoke(Task $task, UpdateTaskRequest $request, UpdateTaskAction $action) {
+    public function __invoke(Task $task, UpdateTaskRequest $request, UpdateTaskAction $action)
+    {
         $task = $action->execute($task, $request->toDto());
 
         return responder()

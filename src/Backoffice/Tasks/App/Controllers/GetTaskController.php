@@ -9,7 +9,8 @@ use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 class GetTaskController
 {
-    public function __invoke(Task $task) {
+    public function __invoke(Task $task)
+    {
         return responder()
             ->success($task, TaskTransformer::class)
             ->respond();

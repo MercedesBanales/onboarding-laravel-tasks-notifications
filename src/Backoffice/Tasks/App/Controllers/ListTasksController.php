@@ -10,7 +10,8 @@ use Lightit\Backoffice\Tasks\Domain\Actions\ListTasksAction;
 
 class ListTasksController
 {
-    public function __invoke(ListTasksAction $action) : JsonResponse {
+    public function __invoke(ListTasksAction $action): JsonResponse
+    {
         $tasks = $action->execute();
 
         return responder()

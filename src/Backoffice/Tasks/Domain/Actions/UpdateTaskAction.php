@@ -17,9 +17,10 @@ class UpdateTaskAction
     public function execute(Task $task, TaskDto $dto): Task
     {
         $task->update([
-            'title' => $dto->getTitle() ?? $task->title,
-            'description' => $dto->getDescription() ?? $task->description,
-            'employee_id' => $dto->getEmployeeId() ?? $task->employee_id
+            'title' => $dto->title ?? $task->title,
+            'description' => $dto->description ?? $task->description,
+            'status' => $dto->status ?? $task->status,
+            'employee_id' => $dto->employee_id ?? $task->employee_id,
         ]);
 
         return $task;

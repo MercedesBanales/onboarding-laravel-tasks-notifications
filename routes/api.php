@@ -52,7 +52,7 @@ Route::prefix('employees')
     ->middleware([])
     ->group(static function () {
         Route::get('/', ListEmployeeController::class);
-        Route::post('/', StoreEmployeeController::class);
+        Route::post('/', StoreEmployeeController::class)->name('employees');
 });
 
 /*
@@ -65,6 +65,6 @@ Route::prefix('tasks')
     ->group(static function () {
         Route::get('/', ListTasksController::class);
         Route::get('/{task}', GetTaskController::class);
-        Route::post('/', StoreTaskController::class);
+        Route::post('/', StoreTaskController::class)->name('tasks');
         Route::put('/{task}', UpdateTaskController::class);
 });

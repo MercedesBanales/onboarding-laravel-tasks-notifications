@@ -18,7 +18,7 @@ class EmployeeTransformer extends Transformer
             'id' => $employee->id,
             'name' => $employee->name,
             'email' => $employee->email,
-            'tasks' => $employee->tasks
+            'tasks' => $employee->tasks,
         ];
     }
 }
