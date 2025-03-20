@@ -27,7 +27,7 @@ class UpdateTaskRequest extends FormRequest
     {
         return [
             self::STATUS => [Rule::enum(TaskStatus::class)],
-            self::EMPLOYEE_ID => [Rule::exists(new Employee()->getTable(), 'id')],
+            self::EMPLOYEE_ID => [Rule::exists(Employee::class, 'id')],
         ];
     }
 

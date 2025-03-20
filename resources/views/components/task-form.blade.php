@@ -1,6 +1,6 @@
 <div class="form-container">
     <h2 class="mb-4">Task Management</h2>
-    <form id="taskForm" action="{{ route('tasks') }}" method="POST">
+    <form id="taskForm" action="{{ route('tasks.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -154,7 +154,7 @@
         e.preventDefault();
         const formData = new FormData(this);
         const action = formData.get('action');
-        let url = '{{ route('tasks') }}'
+        let url = '{{ route('tasks.store') }}'
 
         if (action === 'update') {
             const taskId = formData.get('task_id');

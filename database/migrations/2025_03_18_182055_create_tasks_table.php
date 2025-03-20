@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->enum('status', array_column(TaskStatus::cases(), 'value'))
-                ->defaultValue(TaskStatus::PENDING);      
+            $table->string('status');      
             $table->foreignIdFor(Employee::class);
             $table->timestamps();
         });

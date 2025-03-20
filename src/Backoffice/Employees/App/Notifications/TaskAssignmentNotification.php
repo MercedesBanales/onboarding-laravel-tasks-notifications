@@ -20,7 +20,7 @@ class TaskAssignmentNotification extends Notification implements ShouldQueue
 
     public function __construct(private Task $task)
     {
-        $this->onConnection(env('QUEUE_CONNECTION'));
+        
     }
 
     /**
@@ -38,7 +38,8 @@ class TaskAssignmentNotification extends Notification implements ShouldQueue
             ->view('mail.assigned-task', ['task' => $this->task, 'mail_from' => env('MAIL_FROM_NAME')]);
     }
 
-    private function formatDate(DateTime $date) {
+    private function formatDate(DateTime $date)
+    {
         return date_format($date, 'd/m/Y');
     }
 }
