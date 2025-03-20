@@ -6,6 +6,7 @@ namespace Lightit\Backoffice\Employees\Domain\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Notifications\Notifiable;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 /**
@@ -26,10 +27,14 @@ use Lightit\Backoffice\Tasks\Domain\Models\Task;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee whereUpdatedAt($value)
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
  * @mixin \Eloquent
  */
 class Employee extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'name',
         'email',

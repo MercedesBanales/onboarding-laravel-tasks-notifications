@@ -41,7 +41,9 @@ class Task extends Model
         'employee_id',
     ];
 
-    protected $casts = [ 'status' => TaskStatus::class ];
+    protected $casts = [ 
+        'status' => TaskStatus::class
+    ];
 
     public function employee(): BelongsTo
     {

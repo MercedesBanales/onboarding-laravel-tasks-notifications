@@ -6,6 +6,8 @@ namespace Lightit\Backoffice\Tasks\Domain\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Lightit\Backoffice\Employees\App\Notifications\TaskAssignmentNotification;
+use Lightit\Backoffice\Employees\Domain\Models\Employee;
 use Lightit\Backoffice\Tasks\Domain\DataTransferObjects\TaskDto;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
@@ -24,6 +26,7 @@ class StoreTaskAction
         ]);
 
         $task->save();
+        Employee::find($dto->employee_id)->notify(new TaskAssignmentNotification($task));
 
         return $task;
     }

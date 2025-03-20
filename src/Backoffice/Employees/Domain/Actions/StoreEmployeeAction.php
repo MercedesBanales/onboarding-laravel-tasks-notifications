@@ -12,8 +12,8 @@ class StoreEmployeeAction
     public function execute(EmployeeDto $employeeDto): Employee
     {
         $employee = new Employee([
-            'name' => $employeeDto->getName(),
-            'email' => $employeeDto->getEmail(),
+            'name' => $employeeDto->name,
+            'email' => $employeeDto->email,
         ]);
 
         $employee->save();
