@@ -10,10 +10,6 @@ use Illuminate\View\Component;
 
 class EmployeeForm extends Component
 {
-    public function __construct()
-    {
-    }
-
     public function render(): View|Closure|string
     {
         return view('components.employee-form');

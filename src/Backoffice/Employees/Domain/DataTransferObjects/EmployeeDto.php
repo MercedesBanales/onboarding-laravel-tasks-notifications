@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Collection;
 
 class EmployeeDto
 {
+    /**
+     * @return Collection<int, Employee>
+     */
     public function __construct(
         public readonly string $name,
         public readonly string $email,
-        public readonly Collection $tasks = [],
+        public readonly Collection $tasks = new Collection([]),
     ) {
     }
 }

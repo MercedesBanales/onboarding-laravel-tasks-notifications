@@ -34,12 +34,7 @@ use Lightit\Backoffice\Tasks\App\Enums\TaskStatus;
  */
 class Task extends Model
 {
-    protected $fillable = [
-        'title',
-        'description',
-        'status',
-        'employee_id',
-    ];
+    protected $guarded = [ 'id' ];
 
     protected $casts = [
         'status' => TaskStatus::class,

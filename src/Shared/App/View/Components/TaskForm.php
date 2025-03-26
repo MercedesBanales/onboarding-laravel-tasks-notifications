@@ -10,10 +10,6 @@ use Illuminate\View\Component;
 
 class TaskForm extends Component
 {
-    public function __construct()
-    {
-    }
-
     public function render(): View|Closure|string
     {
         return view('components.task-form');

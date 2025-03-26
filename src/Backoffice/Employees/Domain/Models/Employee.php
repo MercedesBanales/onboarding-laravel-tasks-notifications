@@ -35,10 +35,7 @@ class Employee extends Model
 {
     use Notifiable;
 
-    protected $fillable = [
-        'name',
-        'email',
-    ];
+    protected $guarded = [ 'id' ];
     
     public function tasks(): HasMany
     {

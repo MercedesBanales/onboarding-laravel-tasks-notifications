@@ -11,12 +11,10 @@ class StoreEmployeeAction
 {
     public function execute(EmployeeDto $employeeDto): Employee
     {
-        $employee = new Employee([
+        $employee = Employee::create([
             'name' => $employeeDto->name,
             'email' => $employeeDto->email,
         ]);
-
-        $employee->save();
 
         return $employee;
     }
