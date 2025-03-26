@@ -11,7 +11,7 @@ use Lightit\Backoffice\Tasks\Domain\Actions\StoreTaskAction;
 
 class StoreTaskController
 {
-    public function __invoke(StoreTaskRequest $request, StoreTaskAction $action) : JsonResponse
+    public function __invoke(StoreTaskRequest $request, StoreTaskAction $action): JsonResponse
     {
         $task = $action->execute($request->toDto());
 

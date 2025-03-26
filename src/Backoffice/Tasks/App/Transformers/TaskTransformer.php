@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Lightit\Backoffice\Tasks\App\Transformers;
 
 use Flugg\Responder\Transformers\Transformer;
+use Lightit\Backoffice\Tasks\App\Enums\TaskStatus;
 use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 class TaskTransformer extends Transformer
 {
     /**
-     * @return array{id: int, name: string, email: string}
+     * @return array{id: int, title: string, description: string, status: TaskStatus, employee_id: int}
      */
     public function transform(Task $task): array
     {

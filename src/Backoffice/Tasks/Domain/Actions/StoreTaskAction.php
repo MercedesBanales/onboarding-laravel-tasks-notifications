@@ -20,7 +20,7 @@ class StoreTaskAction
             'employee_id' => $dto->employee_id,
         ]);
 
-        Employee::find($dto->employee_id)->notify(new TaskAssignmentNotification($task));
+        Employee::findOrFail($dto->employee_id)->notify(new TaskAssignmentNotification($task));
 
         return $task;
     }

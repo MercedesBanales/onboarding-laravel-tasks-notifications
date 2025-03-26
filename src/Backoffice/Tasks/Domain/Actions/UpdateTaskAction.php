@@ -23,7 +23,7 @@ class UpdateTaskAction
         ]);
 
         if ($task_reassigned) {
-            Employee::find($dto->employee_id)->notify(new TaskAssignmentNotification($task));
+            Employee::findOrFail($dto->employee_id)->notify(new TaskAssignmentNotification($task));
         }
 
         return $task;

@@ -7,7 +7,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<\Lightit\Shared\App\Task>
+ * @extends Factory<\Lightit\Backoffice\Tasks\Domain\Models\Task>
  */
 class TaskFactory extends Factory
 {

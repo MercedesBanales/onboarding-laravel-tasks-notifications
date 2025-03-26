@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Employees\App\Notifications;
 
+use DateTime;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -37,8 +38,8 @@ class TaskAssignmentNotification extends Notification implements ShouldQueue
             ->view('mail.assigned-task', ['task' => $this->task, 'mail_from' => config('mail.from.name')]);
     }
 
-    private function formatDate(Carbon $date)
+    private function formatDate(?Carbon $date): string
     {
-        return Carbon::parse($date, 'd/m/Y');
+        return Carbon::parse($date)->format('d/m/Y');
     }
 }
