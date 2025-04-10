@@ -2,10 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Lightit\Backoffice\Users\App\Controllers\{
-    DeleteUserController, GetUserController, ListUserController, StoreUserController
-};
-
+use Lightit\Backoffice\Employees\App\Controllers\ListEmployeeController;
+use Lightit\Backoffice\Employees\App\Controllers\StoreEmployeeController;
+use Lightit\Backoffice\Tasks\App\Controllers\ListTasksController;
+use Lightit\Backoffice\Tasks\App\Controllers\GetTaskController;
+use Lightit\Backoffice\Tasks\App\Controllers\StoreTaskController;
+use Lightit\Backoffice\Tasks\App\Controllers\UpdateTaskController;
+use Lightit\Backoffice\Users\App\Controllers\DeleteUserController;
+use Lightit\Backoffice\Users\App\Controllers\GetUserController; 
+use Lightit\Backoffice\Users\App\Controllers\ListUserController;
+use Lightit\Backoffice\Users\App\Controllers\StoreUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +41,29 @@ Route::prefix('users')
         Route::post('/', StoreUserController::class);
         Route::delete('/{user}', DeleteUserController::class);
     });
+
+/*
+|--------------------------------------------------------------------------
+| Employees Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('employees')
+    ->name('employees.')
+    ->group(static function () {
+        Route::get('/', ListEmployeeController::class)->name('list');
+        Route::post('/', StoreEmployeeController::class)->name('store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Tasks Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('tasks')
+    ->name('tasks.')
+    ->group(static function () {
+        Route::get('/', ListTasksController::class)->name('list');
+        Route::get('/{task}', GetTaskController::class)->name('show');
+        Route::post('/', StoreTaskController::class)->name('store');
+        Route::patch('/{task}', UpdateTaskController::class)->name('update');
+});
